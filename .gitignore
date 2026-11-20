@@ -1,0 +1,24 @@
+node_modules/
+.next/
+.next-build/
+out/
+coverage/
+*.tsbuildinfo
+next-env.d.ts
+
+# secrets — never commit
+.env
+.env.*
+!.env.example
+
+# local data (SQLite cache)
+data/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+npm-debug.log*
+.DS_Store
+.vercel
+.env*

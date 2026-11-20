@@ -1,0 +1,15 @@
+# Never upload secrets or local data to Vercel (env vars are set in the Vercel project instead).
+# Leading "/" = project root only (a bare "data/" would also drop lib/data).
+.env
+.env.*
+!.env.example
+/data/
+*.db
+*.db-shm
+*.db-wal
+*.db-journal
+/node_modules/
+/.next/
+/.next-build/
+/coverage/
+/scripts/_*

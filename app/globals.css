@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Light mode only — intentionally no dark-mode handling. */
+:root {
+  color-scheme: light;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply bg-canvas text-body text-ink;
+  }
+  /* All figures use tabular numerals so columns and KPIs don't jitter. */
+  .num,
+  table,
+  [data-numeric] {
+    font-variant-numeric: tabular-nums;
+  }
+  :focus-visible {
+    outline-color: #0d9488;
+  }
+}
+
+/* Report / PDF print styles */
+@page {
+  size: A4;
+  margin: 14mm 12mm;
+}
+@media print {
+  body {
+    background: #ffffff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .report table {
+    font-size: 11px;
+  }
+  .report [style*="max-height"] {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+}
+.page-break {
+  break-before: page;
+  page-break-before: always;
+  padding-top: 8px;
+}
+.avoid-break,
+.report figure,
+.report tr {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
